@@ -77,7 +77,7 @@ class ProcesadorPlanillasTest {
         List<Empleado> empleados = new ArrayList<>();
         empleados.add(new Empleado(1, "", 1000.0f, true));
         empleados.add(new Empleado(2, "Miguel",  2000.0f, true));
-        when(this.procesadorPlanillas.getEmpleados()).thenReturn(empleados);
+        when(this.proveedor.recuperarEmpleados()).thenReturn(empleados);
         //Act: Ejecutar
         Exception exception = assertThrows(Exception.class, procesadorPlanillas::processarPlanilla);
         //Assert: Validar
@@ -96,7 +96,7 @@ class ProcesadorPlanillasTest {
         empleados.add(new Empleado(1, "Miguel",  -1000.0f,true));
         empleados.add(new Empleado(1, "Juan"  ,  -2000.0f,true));
         //Act: Ejecutar
-        when(this.procesadorPlanillas.getEmpleados()).thenReturn(empleados);
+        when(this.proveedor.recuperarEmpleados()).thenReturn(empleados);
         //Assert: Validar
         String esperado = "La suma del monto mensual es menor que 0";
         Exception exception = assertThrows(Exception.class, procesadorPlanillas::processarPlanilla);
@@ -115,7 +115,7 @@ class ProcesadorPlanillasTest {
         empleados.add(new Empleado(1, "Juan",  1000.0f, true));
         empleados.add(new Empleado(2, "Maria", 2000.0f, true));
         empleados.add(new Empleado(3, "carlos",  3000.0f, false));
-        when(this.procesadorPlanillas.getEmpleados()).thenReturn(empleados);
+        when(this.proveedor.recuperarEmpleados()).thenReturn(empleados);
         //Act: Ejecutar
         //Assert: Validar
         assertEquals(3000.0f, procesadorPlanillas.processarPlanilla());

@@ -5,7 +5,7 @@ import com.latam.pgd.procesadorplanillas.inyectores.Proveedor;
 
 import java.util.List;
 
-public class ProcesadorPlanillas implements Proveedor {
+public class ProcesadorPlanillas {
 
     private ProveedorMiembrosPlanilla svrEmpleados;
 
@@ -13,17 +13,13 @@ public class ProcesadorPlanillas implements Proveedor {
         this.svrEmpleados = svrEmpleados;
     }
 
-    @Override
-    public List<Empleado> getEmpleados() {
-        return this.svrEmpleados.recuperarEmpleados();
-    }
 
     /**
      * Este Metodo suma los montos de los empleados activos
      * @return un numero flotante que representa el total de los salarios
      */
     public Float processarPlanilla() throws Exception {
-        List<Empleado> lstEmpleados = getEmpleados();
+        List<Empleado> lstEmpleados = svrEmpleados.recuperarEmpleados();
         float sumaMontos = 0.0f;
 
         if (lstEmpleados == null || lstEmpleados.isEmpty()) {

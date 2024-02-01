@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Data
-public class Empleado {
+public class Empleado implements EmpleadoGenerico {
 
     /** ID (integer) */
     private Integer id;
@@ -33,6 +33,11 @@ public class Empleado {
                 ", montoMensual=" + montoMensual +
                 ", activo=" + activo +
                 '}';
+    }
+
+    @Override
+    public Float getMontoMensualGen() {
+        return this.montoMensual;
     }
 
 }
