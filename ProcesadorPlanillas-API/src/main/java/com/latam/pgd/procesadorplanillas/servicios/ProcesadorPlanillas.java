@@ -36,7 +36,7 @@ public class ProcesadorPlanillas {
 
         sumaMontos = lstEmpleados.stream()
                 .filter(Empleado::isActivo) // Filter only active Empleado objects
-                .map(Empleado::getMontoMensual) // Map to montoMensual
+                .map(Empleado::getMontoMensualSalario) // Map to montoMensual
                 .reduce(0.0f, Float::sum);
 
         if (sumaMontos < 0) {
