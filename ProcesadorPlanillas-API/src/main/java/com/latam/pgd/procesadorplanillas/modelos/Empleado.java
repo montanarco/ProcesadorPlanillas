@@ -1,10 +1,12 @@
 package com.latam.pgd.procesadorplanillas.modelos;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Data
 public class Empleado {
 
     /** ID (integer) */

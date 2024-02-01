@@ -24,6 +24,8 @@ public class ProcesadorPlanillas implements Proveedor {
      */
     public Float processarPlanilla() throws Exception {
         List<Empleado> lstEmpleados = getEmpleados();
+        float sumaMontos = 0.0f;
+
         if (lstEmpleados == null || lstEmpleados.isEmpty()) {
             throw new Exception("No existen empleados para procesar");
         }
@@ -37,7 +39,7 @@ public class ProcesadorPlanillas implements Proveedor {
             }
         }
 
-        float sumaMontos = lstEmpleados.stream()
+        sumaMontos = lstEmpleados.stream()
                 .filter(Empleado::isActivo) // Filter only active Empleado objects
                 .map(Empleado::getMontoMensual) // Map to montoMensual
                 .reduce(0.0f, Float::sum);
