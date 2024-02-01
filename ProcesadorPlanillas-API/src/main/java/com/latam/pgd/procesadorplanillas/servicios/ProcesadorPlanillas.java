@@ -1,7 +1,6 @@
 package com.latam.pgd.procesadorplanillas.servicios;
 
 import com.latam.pgd.procesadorplanillas.modelos.Empleado;
-import com.latam.pgd.procesadorplanillas.inyectores.Proveedor;
 
 import java.util.List;
 
